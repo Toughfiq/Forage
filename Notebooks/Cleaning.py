@@ -5,6 +5,7 @@ import seaborn as sns
 # Load dataset and describe the data
 retail = pd.read_csv("Dataset\online_retail.csv",on_bad_lines='skip', sep=";", decimal= ",", encoding="latin1"  )
 retail.info()
+print(retail.describe())
 print(retail.shape)    # lihat jumlah baris & kolom
 print(retail.columns)  # lihat nama kolom
 print(retail.dtypes)   # tipe data tiap kolom
@@ -27,3 +28,5 @@ retail = retail.reset_index(drop=True)
 print(retail.info())
 print(retail.describe())
 
+# Simpan DataFrame yang sudah dibersihkan ke file CSV baru
+retail.to_csv("Dataset\online_retail_cleaned.csv", index=False)
