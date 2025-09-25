@@ -44,7 +44,8 @@ Version Control: Git & GitHub
 <h2>Tautan </h2>
 
 Tableau Public
-[Tautan ke Dashboard Tableau Public Anda]
+
+[Tableau Public](https://public.tableau.com/views/Tata_Forage_17587796432050/AnalysisReport?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 Skrip Data cleansing
 
