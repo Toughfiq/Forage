@@ -48,4 +48,5 @@ Tableau Public
 
 Skrip Data cleansing
 
-<a href="(https://github.com/Toughfiq/Forage/blob/main/Notebooks/Cleaning.py)">Data Cleansing</a>
+[Data Cleansing](https://github.com/Toughfiq/Forage/blob/main/Notebooks/Cleaning.py)
+
