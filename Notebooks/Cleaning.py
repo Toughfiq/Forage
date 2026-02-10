@@ -24,6 +24,9 @@ retail = retail.dropna(subset=['CustomerID'])
 retail = retail[retail['UnitPrice'] > 0]
 # Reset index
 retail = retail.reset_index(drop=True)
+# Membuat kolom revenue.
+retail['Revenue'] = retail['Quantity'] * retail['UnitPrice']
+print(retail[['Quantity', 'UnitPrice', 'Revenue']].head())
 # Cek hasil awal
 print(retail.info())
 print(retail.describe())
