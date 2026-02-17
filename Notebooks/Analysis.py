@@ -45,3 +45,6 @@ kmeans = KMeans(n_clusters=3, random_state=42)
 kmeans.fit(rfm_scaled)                          
 rfm['cluster_final'] = kmeans.labels_
 print(rfm.groupby('cluster_final')[['Recency', 'Frequency', 'Monetary']].mean())
+
+# simpan hasil clustering ke file CSV lama
+rfm[['Recency', 'Frequency', 'Monetary', 'cluster_final']].to_csv("Dataset\online_retail_rfm.csv", index= False)
