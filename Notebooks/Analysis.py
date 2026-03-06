@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score, davies_bouldin_score
 # Load dataset
 rfm = pd.read_csv("Dataset\online_retail_cleaned.csv")
 rfm.info()
@@ -40,6 +41,16 @@ plt.xlabel('Cluster')
 plt.ylabel('WCSS Value')
 plt.show()
 
+
+print(f"{'k':<5} {'Silhouette':>12} {'DBI':>10}")
+print("-" * 30)
+for k in range(2, 11):
+    km = KMeans(n_clusters=k, random_state=42)
+    km.fit(rfm_scaled)
+    sil = silhouette_score(rfm_scaled, km.labels_)
+    dbi = davies_bouldin_score(rfm_scaled, km.labels_)
+    print(f"k={k:<3} Silhouette={sil:.4f}  DBI={dbi:.4f}")
+
 # K-Means Clustering
 kmeans = KMeans(n_clusters=3, random_state=42)  
 kmeans.fit(rfm_scaled)                          
@@ -47,4 +58,4 @@ rfm['cluster_final'] = kmeans.labels_
 print(rfm.groupby('cluster_final')[['Recency', 'Frequency', 'Monetary']].mean())
 
 # simpan hasil clustering ke file CSV lama
-rfm[['Recency', 'Frequency', 'Monetary', 'cluster_final']].to_csv("Dataset\online_retail_rfm.csv", index= False)
+rfm[['Recency', 'Frequency', 'Monetary', 'cluster_final']].to_csv("Dataset\online_retail_rfm.csv")
